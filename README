@@ -1,0 +1,11 @@
+mandelbrotJS
+javascript/HTML5 mandelborot viewer
+
+uses canvases to show mandelbrot set and orbital trace
+
+TODO:
+cleanup code
+make harder (easier?)
+make better (fix little bugs)
+make faster (webGL?)
+make stronger (fix more little bugs?)
