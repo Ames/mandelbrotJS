@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+	<title>Mandelbrot Playground</title>
+	<link rel="icon" type="image/png" href="mandel.png">
+	<script type="text/javascript" src="main.js"></script>
+	<style type="text/css">
+	body{
+		padding:0px;
+		margin:0px;
+	}
+	#ui{
+		opacity:.1;	
+	}
+	#ui:hover{
+		opacity:1;	
+	}
+	.rounded{-moz-border-radius: 5px; -webkit-border-radius: 5px; }</style>
+</head>
+<body onload="init()" style="background-color:#222;">
+	<div id='canvasdiv' onmousedown="mouseDown(event)" onmouseup="mouseUp(event)" onmousemove="mouseMove(event)" style="position: absolute; top: 0px; left: 0px; width:100%; height:100%; background-color:#333; cursor: crosshair;" class='rounded'>
+		<canvas style="position: absolute; top:0px; left:0px;" width='800' height='600' id="canvas" ></canvas>
+		<canvas style="position: absolute; top:0px; left:0px;" width='800' height='600' id="canvas2" ></canvas>
+		<div id='selbox' style='border:solid 1px #444; background-color:#000; opacity: 0.5; position: absolute;  cursor: crosshair;'></div>
+	</div>
+	<div id='ui' style="position: absolute; top: 630px; left:12px; text-align:center; background-color: #666; border:2px #333 solid;" class='rounded'>
+		<form id='controls' action="javascript: setHash();" style="padding: 3px; width:450px;">
+			center:<input type='text' id='cx' value='0'/>, 
+			<input type='text' id='cy' value='0'/>
+			<div style="display:inline-block; width:80px; height:8px; background-color: #333;" id='progress'  class='rounded'>
+				<div id='progbar' style="width: 0%; height:100%; background-color: #888;" class='rounded'></div>
+			</div>
+			<br/>
+			width: <input type='text' id='wide' value='4.5' />
+			iter: <input type='text' id='imax' value='200' style='width:50px;'/>
+			<select id='color'>
+				<option value='color1'>Color 1</option>
+				<option value='color2'>Color 2</option>
+				<option value='purple'>Purple</option>
+				<option value='red'>Red</option>
+				<option value='alpha'>Alpha</option>
+				<option value='grey'>Grey</option>
+				<option value='white'>White</option>
+			</select>
+			 <input type='submit' id='go' value='go!' />
+			 <br/>
+			 <input type='button' id='reset' value='default' onclick="doReset()"/>
+			 <input type='button' id='zoomout' value='zoom out' onclick="zoomOut()"/>
+			 trace:<input type="checkbox" id="trace" checked='true'/>
+		</form>
+		<!--<div id='para' style="padding: 6px;">Parameters:</div>-->
+		<div id='info'></div>
+	</div>
+</body>
+</html>
